@@ -26,12 +26,12 @@ The code should be run in the following order:
 
 For NO2,<br />
 <br />
-Step 1. run *Rcode_NO2_figure1.R* (you can reduce the number of bootstraps to 10 to save hours of run time).<br />
+Step 1. run *Rcode_NO2_figure1.R* (you can reduce the number of bootstraps to 10 by changing *num_resamples = 1000* to *num_resamples = 10*. this will save hours of run time).<br />
 Step 2. save the dataframe *df_change_no2* that is generated in this code as *df_change_no2.csv*. (you can also use *df_change_no2.csv* file that is in this repo).<br />
 
 For PM2.5,<br />
 <br />
-Step 3. run *Rcode_PM25_figure1.R* (you can reduce the number of bootstraps, *num_resamples = 10* to save hours of run time, currently it is set to 1000).<br />
+Step 3. run *Rcode_PM25_figure1.R* (you can reduce the number of bootstraps, *num_resamples = 10* by changing *num_resamples = 1000* to *num_resamples = 10*. this will save hours of run time).<br />
 Step 4. save the dataframe *df_change* that is generated in this code as *df_change_pm25.csv*. (you can also use *df_change_pm25.csv* file that is in this repo).<br />
 
 Finally regression,<br />
