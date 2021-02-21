@@ -24,14 +24,17 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 The code should be run in the following order:
 
-For NO2,
-Step 1. run *Rcode_NO2_figure1.R* (you can reduce the number of bootstraps to 10 to save hours of run time).
-Step 2. save the dataframe *df_change_no2* that is generated in this code as *df_change_no2.csv*. (you can also use *df_change_no2.csv* file that is in this repo).
+For NO2,<br />
+<br />
+Step 1. run *Rcode_NO2_figure1.R* (you can reduce the number of bootstraps to 10 to save hours of run time).<br />
+Step 2. save the dataframe *df_change_no2* that is generated in this code as *df_change_no2.csv*. (you can also use *df_change_no2.csv* file that is in this repo).<br />
 
-For PM2.5,
-Step 3. run *Rcode_PM25_figure1.R* (you can reduce the number of bootstraps to 10 to save hours of run time).
-Step 4. save the dataframe *df_change* that is generated in this code as *df_change_pm25.csv*. (you can also use *df_change_pm25.csv* file that is in this repo).
+For PM2.5,<br />
+<br />
+Step 3. run *Rcode_PM25_figure1.R* (you can reduce the number of bootstraps to 10 to save hours of run time).<br />
+Step 4. save the dataframe *df_change* that is generated in this code as *df_change_pm25.csv*. (you can also use *df_change_pm25.csv* file that is in this repo).<br />
 
-Finally regression,
-Step 5. run the regression analysis *Rcode_regression_NEI_WLS.R*
-Note: This code performs regression analysis for both NO2 and PM2.5. If you wish to only run the code for one pollutant, you will need to comment out the analysis of the other pollutant to avoid getting an error.
+Finally regression,<br />
+<br />
+Step 5. run the regression analysis *Rcode_regression_NEI_WLS.R*<br />
+Note: This code performs regression analysis for both NO2 and PM2.5. If you wish to only run the code for one pollutant, you will need to comment out the analysis of the other pollutant to avoid getting an error.<br />
