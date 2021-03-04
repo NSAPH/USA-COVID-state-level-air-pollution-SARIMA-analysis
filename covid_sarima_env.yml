@@ -1,7 +1,8 @@
 name: covid_sarima
 channels:
-  - defaults
+  - conda-forge
 dependencies:
+  - r-base=3.6.2
   - r-data.table=1.12.8
   - r-tidyverse=1.3
   - r-boot=1.3-25
