@@ -111,7 +111,7 @@ for (state_fullname in unique(state_policy$State)){
   train$idx <- seq(1, nrow(train))
   
   xregs_train <- xregs %>% filter(date<ldate) # ldate not included
-  xregs_train <- xregs_train[c('temp','ppt','hum')]
+  xregs_train <- xregs_train[, .(temp,ppt,hum)]
   
   xregs_train <- as.matrix(xregs_train)
   
@@ -122,7 +122,7 @@ for (state_fullname in unique(state_policy$State)){
   
   ## test data for confounders
   xregs_test <- xregs %>%  filter(date>=ldate & date <udate)
-  xregs_test <- xregs_test[c('temp','ppt','hum')]
+  xregs_test <- xregs_test[,.(temp,ppt,hum)]
   xregs_test <- as.matrix(xregs_test)
 
   
