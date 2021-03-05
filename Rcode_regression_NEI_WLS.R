@@ -4,21 +4,23 @@ rm(list=ls())
 library(tidyverse)
 library(Hmisc)
 library(usmap)
+library(data.table)
 
 ########
 # read data frames
 ########
 
-df_change_pm25 <- read.csv("../df_change_pm25.csv")
+cat("load pm25\n")
+df_change_pm25 <- read.csv("df_change_pm25.csv")
 df_change_pm25$diff <- df_change_pm25$before - df_change_pm25$after
 
 ##
-
-df_change_no2<- read.csv("../df_change_no2.csv")
+cat("load NO2\n")
+df_change_no2<- read.csv("df_change_no2.csv")
 df_change_no2$diff <- df_change_no2$before - df_change_no2$after
 
-
-df_pop<- read.csv('../pop_density_census2010.csv',fileEncoding="UTF-8-BOM")
+cat("load pop density\n")
+df_pop<- fread('pop_density_census2010.csv')
 df_pop$state <- state.abb[match(df_pop$state, state.name)]
 df_pop <- df_pop %>% drop_na()
 

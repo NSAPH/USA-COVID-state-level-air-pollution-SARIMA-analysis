@@ -11,7 +11,8 @@ library(ggthemes)
 library(gridExtra)
 library(forecast)
 library(data.table)
-library(GGally)
+library(cowplot)
+library(grid)
 
 dfpoll_orig <- read.csv('data_alltimepm25.csv')
 dfpoll_orig$date <- as.Date(dfpoll_orig$date)
@@ -103,7 +104,7 @@ for (state_fullname in unique(state_policy$State)){
   train$idx <- seq(1, nrow(train))
   
   xregs_train <- xregs %>% filter(date<ldate) # ldate not included
-  xregs_train <- xregs_train[c('temp','ppt','hum')]
+  xregs_train <- xregs_train[,.(temp,ppt,hum)]
   
   xregs_train <- as.matrix(xregs_train)
   
@@ -114,7 +115,7 @@ for (state_fullname in unique(state_policy$State)){
   
   ## test data for confounders
   xregs_test <- xregs %>%  filter(date>=ldate & date <udate)
-  xregs_test <- xregs_test[c('temp','ppt','hum')]
+  xregs_test <- xregs_test[,.(temp,ppt,hum)]
   xregs_test <- as.matrix(xregs_test)
   
   
@@ -122,8 +123,9 @@ for (state_fullname in unique(state_policy$State)){
   
   ts=ts(train$pm25)
   
-  num_resamples=1000 # number of bootstraps
-  
+  # num_resamples=1000 # number of bootstraps
+  num_resamples <- 10 # set low for testing
+
   sim <- bld.mbb.bootstrap(ts, num_resamples)
   preds = matrix(list(), nrow=num_resamples)
   
@@ -178,7 +180,6 @@ allplots <- marrangeGrob(p, nrow=2, ncol=1)
 ################################################
 
 ps <- paste('p[[',1:length(p),']]', sep='', collapse=',')
-library(cowplot)
 
 #########################
 for (i in seq(1,length(p))){
@@ -194,7 +195,10 @@ plot <- plot_grid(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]],p[[7]],p[[8]],p[[9]]
 library(grid)
 y.grob <- textGrob(expression(paste("Difference between actual and predicted PM2.5 concentrations ( ",mu, "g/",m^3,")")), 
                    gp=gpar(fontface="bold", fontsize=15), rot=90)
+
+png("figures/pm25_figure1.png", height=1000, width=2000)
 grid.arrange(arrangeGrob(plot, left = y.grob)) 
+dev.off()
 
 
 
@@ -224,6 +228,8 @@ for (i in 2:length(p)){
 df_change <- df_box %>% group_by(state, period) %>% 
             summarise(median_diff = median(mean_diff)) %>%
             spread(period, median_diff)
+
+fwrite(df_change, "df_change_pm25.csv")
 
 df_meanchange_pm25 <- df_box %>% group_by(state, period) %>% 
      summarise(mean_diff = mean(mean_diff)) %>%
