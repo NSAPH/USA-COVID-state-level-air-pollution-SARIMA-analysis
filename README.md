@@ -22,6 +22,12 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 ## How to run the code:
 
+### Development Environment
+
+We have included the file `covid_sarima_env.yml` which can be used to create a conda environment with all of the packages required to run the code in this project. 
+
+### Running the Code
+
 The code should be run in the following order:
 
 For NO2,<br />
