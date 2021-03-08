@@ -27,7 +27,11 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 ### Development Environment
 
-We have included the file `covid_sarima_env.yml` which can be used to create a conda environment with all of the packages required to run the code in this project. 
+We have included the file `covid_sarima_env.yml` which can be used to create a conda environment with all of the packages required to run the code in this project. To create the environment, [install conda](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/index.html) if you don't have it already then run:
+```
+conda env create -f covid_sarima_env.yml`
+```
+from the project directory
 
 ### Running the Code
 
