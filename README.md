@@ -10,7 +10,7 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 2. *data_alltimeno2.csv*  contains the measured NO2 concentrations for each state as a function of time.
 
-3. *data_alltimepm25.zip*  contains the measured PM2.5 concentrations for each state as a function of time.  
+3. *data_alltimepm25.csv*  contains the measured PM2.5 concentrations for each state as a function of time.  
 
 4. *df_regions.csv*  contains the region designations for each state. 
 
@@ -20,6 +20,8 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 7. *df_change_pm25.csv* and *df_change_no2.csv* are obtained as outputs of the SARIMA analysis performed using the codes *Rcode_PM25_figure1.R*  and *Rcode_NO2_figure1.R* respectively. These files contain the estimated change in pollutant concentrations following the state of emergency declaration in each state, based on our analysis.
 
+8. *NEI_sector_report.zip* This file needs to be unzipped prior to running *Rcode_regression_NEI_WLS.R*. **POOJA PLEASE ADD DESCRIPTION OF DATA HERE**
+
 ## How to run the code:
 
 ### Development Environment
@@ -27,6 +29,8 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 We have included the file `covid_sarima_env.yml` which can be used to create a conda environment with all of the packages required to run the code in this project. 
 
 ### Running the Code
+
+Note: Currently the `num_resamples` value in all files that contain it is set to 10 for testing purposes. To reproduce the papers' results, it will need to be changed to 1000.
 
 The code should be run in the following order:
 
