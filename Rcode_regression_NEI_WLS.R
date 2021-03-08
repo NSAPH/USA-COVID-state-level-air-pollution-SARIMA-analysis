@@ -20,12 +20,12 @@ df_change_no2<- read.csv("df_change_no2.csv")
 df_change_no2$diff <- df_change_no2$before - df_change_no2$after
 
 cat("load pop density\n")
-df_pop<- fread('pop_density_census2010.csv')
+df_pop <- read.csv('pop_density_census2010.csv', encoding="us-ascii")
 df_pop$state <- state.abb[match(df_pop$state, state.name)]
 df_pop <- df_pop %>% drop_na()
 
 df_regions <- read.csv('df_regions.csv')
-df_regions$state <- trimws(df_regions$ï..state, which = c("both"))
+df_regions$state <- trimws(df_regions$state, which = c("both"))
 df_regions$state <- state.abb[match(df_regions$state, state.name)]
 
 nei <- read.csv('NEI_sector_report.txt')
