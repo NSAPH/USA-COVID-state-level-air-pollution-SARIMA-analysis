@@ -8,9 +8,11 @@ library(readxl)
 library(tidyverse)
 library(boot)
 library(ggthemes)
+library(grid)
 library(gridExtra)
 library(forecast)
 library(data.table)
+library(cowplot)
 
 dfpoll_orig <- read.csv('data_alltimeno2.csv')
 dfpoll_orig$date <- as.Date(dfpoll_orig$date)
@@ -129,8 +131,8 @@ for (state_fullname in unique(state_policy$State)){
   ts=ts(train$no2)
   
   # number of bootstraps
-  num_resamples=1000
-  
+#  num_resamples=1000
+  num_resamples <- 10 # small number for testing
   sim <- bld.mbb.bootstrap(ts, num_resamples)
   preds = matrix(list(), nrow=num_resamples)
   
@@ -190,7 +192,8 @@ allplots <- marrangeGrob(p, nrow=2, ncol=1)
 
 
 ps <- paste('p[[',1:length(p),']]', sep='', collapse=',')
-library(cowplot)
+
+
 for (i in 1:length(p)) {
   p[[i]] <- p[[i]]+theme(axis.title=element_blank())+ scale_y_continuous(breaks=seq(-30, 30, 30))
   # axis.text.x=element_blank(),
@@ -202,7 +205,10 @@ plot <- plot_grid( p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]],p[[7]],p[[8]],p[[9]
                    p[[31]],p[[32]],p[[33]],p[[34]],p[[35]],p[[36]])
 y.grob <- textGrob(expression(paste("Difference between actual and predicted ",NO[2]," concentrations (ppb)")), 
                          gp=gpar(fontface="bold", fontsize=15), rot=90)
-grid.arrange(arrangeGrob(plot, left = y.grob))             
+
+png("figures/NO2_figure1.png", height = 1000, width=2000)
+grid.arrange(arrangeGrob(plot, left = y.grob))          
+dev.off()   
 
 ################################################
 ## TO MAKE BOXPLOTS
@@ -230,6 +236,8 @@ for (i in 2:length(p)){
 df_change_no2 <- df_box %>% group_by(state, period) %>% 
   summarise(median_diff = median(mean_diff)) %>%
   spread(period, median_diff)
+
+fwrite(df_change_no2, "df_change_no2.csv")
 
 df_meanchange_no2 <- df_box %>% group_by(state, period) %>% 
   summarise(mean_diff = mean(mean_diff)) %>%
