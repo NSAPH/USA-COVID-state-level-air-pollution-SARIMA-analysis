@@ -4,6 +4,7 @@ rm(list=ls())
 library(tidyverse)
 library(Hmisc)
 library(usmap)
+library(car)
 library(data.table)
 
 ########
@@ -95,7 +96,6 @@ df_all_scaled[,cols_to_scale] <- scale(df_all[, cols_to_scale])
 #############
 ## WLS
 #############
-library(car) # for qqPlot
 
 
 df_no2 <- df_all_scaled %>% filter(no2_change!="")

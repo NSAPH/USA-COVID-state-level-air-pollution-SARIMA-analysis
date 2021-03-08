@@ -52,7 +52,7 @@ states =list()
 train_forecast_avg= list()
 train_forecast_sd=list()
 
-for (state_fullname in unique(state_policy$State[1:5])){
+for (state_fullname in unique(state_policy$State)){
   if (state_fullname=='Alaska'){next}
   
   #################################################

@@ -13,4 +13,5 @@ dependencies:
   - r-cowplot=1.0.0
   - r-hmisc=4.4
   - r-usmap
+  - r-car
 prefix: /opt/anaconda3/envs/covid_sarima
