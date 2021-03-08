@@ -14,7 +14,8 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 4. *df_regions.csv*  contains the region designations for each state. 
 
-5. *pop_density_census2010.csv* contains the population density (per square mile) of each state based on the 2010 census. 
+5. *pop_density_census2010.csv* contains the population density (per square mile) of each state based on the 2010 census. Sourced from: https://web.archive.org/web/20111028061117/http://2010.census.gov/2010census/data/apportionment-dens-text.php
+
 
 6. *state_policy_changes_1.csv* contains the dates of different covid-related interventions for each state.
 
