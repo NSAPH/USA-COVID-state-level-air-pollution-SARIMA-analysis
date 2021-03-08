@@ -1,6 +1,7 @@
 name: covid_sarima
 channels:
   - conda-forge
+  - r
 dependencies:
   - r-base=3.6.2
   - r-data.table=1.12.8
@@ -9,4 +10,8 @@ dependencies:
   - r-ggthemes=4.2.0
   - r-gridextra=2.3
   - r-forecast=8.12
-prefix: /opt/anaconda3/envs/covid_old_dt
+  - r-cowplot=1.0.0
+  - r-hmisc=4.4
+  - r-usmap
+  - r-car
+prefix: /opt/anaconda3/envs/covid_sarima
