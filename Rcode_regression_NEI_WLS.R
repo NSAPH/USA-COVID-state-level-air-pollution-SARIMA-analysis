@@ -67,8 +67,7 @@ df_all <- nei_grp_source_perc%>%
   left_join(df_change_no2, by='state')%>% rename( no2_change = diff) %>%
   select(-c('before', 'after')) %>%
   left_join( df_change_pm25, by='state')%>% rename( pm25_change = diff) %>%
-  select(-c('before', 'after', 'STATE', 'X.x','X.y'))
-
+  select(-c('before', 'after', 'STATE', 'X'))
 
 names(df_all) <- sub(" ", ".", names(df_all))
 
