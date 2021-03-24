@@ -21,7 +21,7 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 7. *df_change_pm25.csv* and *df_change_no2.csv* are obtained as outputs of the SARIMA analysis performed using the codes *Rcode_PM25_figure1.R*  and *Rcode_NO2_figure1.R* respectively. These files contain the estimated change in pollutant concentrations following the state of emergency declaration in each state, based on our analysis.
 
-8. *NEI_sector_report.zip* This file needs to be unzipped prior to running *Rcode_regression_NEI_WLS.R* as it is too large to be stored uncompressed on github. Running `unzip NEI_sector_report.zip` will unzip the file. This data is sourced from the EPA National Emission Inventory report
+8. *NEI_sector_report.zip* This file needs to be unzipped prior to running *Rcode_regression_NEI_WLS.R* as it is too large to be stored uncompressed on github. Running `unzip NEI_sector_report.zip` will unzip the file. This data is sourced from the [EPA National Emission Inventory report](https://gispub.epa.gov/neireport/2014/)
 
 ## How to run the code:
 
