@@ -21,7 +21,7 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 7. *df_change_pm25.csv* and *df_change_no2.csv* are obtained as outputs of the SARIMA analysis performed using the codes *Rcode_PM25_figure1.R*  and *Rcode_NO2_figure1.R* respectively. These files contain the estimated change in pollutant concentrations following the state of emergency declaration in each state, based on our analysis.
 
-8. *NEI_sector_report.zip* This file needs to be unzipped prior to running *Rcode_regression_NEI_WLS.R*. **POOJA PLEASE ADD DESCRIPTION OF DATA HERE**
+8. *NEI_sector_report.zip* This file needs to be unzipped prior to running *Rcode_regression_NEI_WLS.R* as it is too large to be stored uncompressed on github. Running `unzip NEI_sector_report.zip` will unzip the file. This data is sourced from the EPA National Emission Inventory report
 
 ## How to run the code:
 
@@ -29,11 +29,18 @@ The code uses bootstrapped seasonal autoregressive time series models to make co
 
 We have included the file `covid_sarima_env.yml` which can be used to create a conda environment with all of the packages required to run the code in this project. To create the environment, [install conda](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/index.html) if you don't have it already then run:
 ```
-conda env create -f covid_sarima_env.yml`
+conda env create -f covid_sarima_env.yml
 ```
 from the project directory
 
 ### Running the Code
+
+Prior to running the code, this repo should be cloned locally. The command to clone the repo is:
+```
+git clone git@github.com:poojatya/USA-COVID-state-level-air-pollution-SARIMA-analysis.git
+```
+
+We recommend executing the code files in this repo using the `Rscript` command.
 
 Note: Currently the `num_resamples` value in all files that contain it is set to 10 for testing purposes. To reproduce the papers' results, it will need to be changed to 1000.
 
