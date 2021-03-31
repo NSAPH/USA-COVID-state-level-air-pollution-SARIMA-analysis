@@ -14,4 +14,7 @@ dependencies:
   - r-hmisc=4.4
   - r-usmap
   - r-car
+  - r-sf
+  - r-rnaturalearth
+  - r-geos
 prefix: /opt/anaconda3/envs/covid_sarima
