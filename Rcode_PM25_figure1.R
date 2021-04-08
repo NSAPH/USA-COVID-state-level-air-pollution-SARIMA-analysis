@@ -155,7 +155,7 @@ for (state_fullname in unique(state_policy$State)){
     geom_hline(yintercept = 0)+
     geom_point(size=3)+
     theme(axis.title=element_blank())+
-    scale_y_continuous(breaks=seq(-10, 10, 10)) + 
+    scale_y_continuous() + 
     scale_x_date("Date",breaks = c(seq(from=as.Date("2020-01-01"),
                                        to=as.Date("2020-04-30"),by="month")),
                  labels = c('J','F','M','A')) +
