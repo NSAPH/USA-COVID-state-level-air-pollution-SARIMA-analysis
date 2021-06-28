@@ -16,5 +16,5 @@ dependencies:
   - r-car
   - r-sf
   - r-rnaturalearth
-  - r-geos
+  - r-rgeos
 prefix: /opt/anaconda3/envs/covid_sarima
